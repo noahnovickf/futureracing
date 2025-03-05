@@ -1,20 +1,23 @@
 "use client"
 import styles from "./page.module.css";
-import Header from "./components/header/Header";
-import HomeWindow from "./components/header/home-window/HomeWindow";
-import original from 'react95/dist/themes/original';
-import { ThemeProvider } from "styled-components";
+import Welcome from "./components/window/Welcome";
+import DragWindow from "./components/window/DragWindow";
+import FutureHome from "./components/window/FutureHome";
+import IconContainer from "./IconContainer";
 
 const Home = () => {
   return (
-    <ThemeProvider theme={original}>
       <div className={styles.page}>
-        <Header />
-        <main className={styles.main}>
-          <HomeWindow />
+      <main className={styles.main}>
+        <IconContainer />
+        <DragWindow header='futurecycling/landing-page' coordinates={{x:200, y:200 }} >
+          <Welcome />
+        </DragWindow>
+        <DragWindow header="futurecycling/logo" coordinates={{x:500, y:500 }} >
+          <FutureHome />
+        </DragWindow>
         </main>
       </div>
-    </ThemeProvider>
   );
 }
 

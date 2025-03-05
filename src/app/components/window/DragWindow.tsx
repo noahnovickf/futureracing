@@ -1,12 +1,11 @@
 "use client"
 import "98.css";
-import { useState, useRef, useEffect } from "react";
-import styles from "./HomeWindow.module.css";
+import { useState, useRef, useEffect, ReactNode } from "react";
+import styles from "./DragWindow.module.css";
 
-const welcomeArray = Array(98).fill("Welcome to www.futureracing.cc");
 
-const HomeWindow = () => {
-  const [position, setPosition] = useState({ x: 50, y: 100 });
+const DragWindow = ({ children, header, coordinates, }: { children: ReactNode, header: string, coordinates: {x: number, y: number} }) => {
+  const [position, setPosition] = useState(coordinates);
   const [isDragging, setIsDragging] = useState(false);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const windowRef = useRef<HTMLDivElement>(null);
@@ -28,7 +27,7 @@ const HomeWindow = () => {
     if (isDragging && windowRef.current) {
       const windowWidth = windowRef.current.offsetWidth;
       const windowHeight = windowRef.current.offsetHeight;
-      const headerHeight = 64; // Adjust this value based on your header height
+      const headerHeight = 0; // Adjust this value based on your header height
       
       // Calculate new position
       let newX = e.clientX - dragOffset.x;
@@ -76,7 +75,6 @@ const HomeWindow = () => {
       style={{ 
         width: 400, 
         maxHeight: 400, 
-        overflowY: 'scroll',
         position: 'absolute',
         left: `${position.x}px`,
         top: `${position.y}px`,
@@ -90,27 +88,14 @@ const HomeWindow = () => {
       }}
         onMouseDown={handleMouseDown}
       >
-        <div className="title-bar-text" >Users/Desktop/futurecycling/landing-page</div>
+        <div className="title-bar-text" >{header}</div>
         <div className="title-bar-controls">
           <button aria-label="Close" disabled/>
         </div>
       </div>
-
-      <div className="window-body">
-        <div style={{ textAlign: "left", fontSize: '14px' }}>
-          {welcomeArray.map((text, index) => (
-            <p key={index} style={{marginBottom: '5px'}}>
-              {text}
-              <br />
-            </p>
-          ))}
-          <p style={{marginTop: '12px'}}>Why would you scroll down here?</p>
-        </div>
-        <div className="field-row" style={{ justifyContent: "center" }}>
-        </div>
-      </div>
+      {children}
     </div>
   );
 }
 
-export default HomeWindow
+export default DragWindow
