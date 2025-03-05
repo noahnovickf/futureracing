@@ -1,0 +1,28 @@
+{
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#00cc00",
+    "activityBar.background": "#00cc00",
+    "activityBar.foreground": "#009900",
+    "activityBar.inactiveForeground": "#00990099",
+    "activityBarBadge.background": "#6060ff",
+    "activityBarBadge.foreground": "#009900",
+    "commandCenter.border": "#00990099",
+    "sash.hoverBorder": "#00cc00",
+    "statusBar.background": "#009900",
+    "statusBar.foreground": "#009900",
+    "statusBarItem.hoverBackground": "#00cc00",
+    "statusBarItem.remoteBackground": "#009900",
+    "statusBarItem.remoteForeground": "#009900",
+    "titleBar.activeBackground": "#009900",
+    "titleBar.activeForeground": "#009900",
+    "titleBar.inactiveBackground": "#00990099",
+    "titleBar.inactiveForeground": "#00990099"
+  },
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": true,
+  "editor.insertSpaces": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
