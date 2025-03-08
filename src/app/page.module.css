@@ -12,11 +12,7 @@
   justify-items: center;
   min-height: 100svh;
   gap: 64px;
-  font-family: var(--font-geist-sans);
-  background-image: url('/Clouds.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  font-family: var(--font-kode-mono);
 }
 
 @media (prefers-color-scheme: dark) {

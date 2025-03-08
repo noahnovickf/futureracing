@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import {  Kode_Mono } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
+import IconContainer from "./IconContainer";
 
 const KodeMono = Kode_Mono({
-  variable: "--font-kode-sans",
+  variable: "--font-kode-mono",
   subsets: ["latin"],
 });
 
@@ -27,6 +28,7 @@ export default function RootLayout({
           />
       </Head>
       <body className={`${KodeMono.variable}`}>
+        <IconContainer />
         {children}
       </body>
     </html>

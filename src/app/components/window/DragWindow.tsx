@@ -1,10 +1,21 @@
-"use client"
-import "98.css";
-import { useState, useRef, useEffect, ReactNode } from "react";
-import styles from "./DragWindow.module.css";
+'use client';
+import '98.css';
+import { useState, useRef, useEffect, ReactNode } from 'react';
+import styles from './DragWindow.module.css';
 
-
-const DragWindow = ({ children, header, coordinates, }: { children: ReactNode, header: string, coordinates: {x: number, y: number} }) => {
+const DragWindow = ({
+  children,
+  header,
+  coordinates,
+  width = 400,
+  height = 400,
+}: {
+  children: ReactNode;
+  header: string;
+  coordinates: { x: number; y: number };
+  width?: number;
+  height?: number;
+}) => {
   const [position, setPosition] = useState(coordinates);
   const [isDragging, setIsDragging] = useState(false);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
@@ -16,7 +27,7 @@ const DragWindow = ({ children, header, coordinates, }: { children: ReactNode, h
       const rect = windowRef.current.getBoundingClientRect();
       setDragOffset({
         x: e.clientX - rect.left,
-        y: e.clientY - rect.top
+        y: e.clientY - rect.top,
       });
       setIsDragging(true);
     }
@@ -28,24 +39,27 @@ const DragWindow = ({ children, header, coordinates, }: { children: ReactNode, h
       const windowWidth = windowRef.current.offsetWidth;
       const windowHeight = windowRef.current.offsetHeight;
       const headerHeight = 0; // Adjust this value based on your header height
-      
+
       // Calculate new position
       let newX = e.clientX - dragOffset.x;
       let newY = e.clientY - dragOffset.y;
-      
+
       // Get viewport dimensions
       const viewportWidth = window.innerWidth;
       const viewportHeight = window.innerHeight;
-      
+
       // Constrain X position
       newX = Math.max(0, Math.min(newX, viewportWidth - windowWidth));
-      
+
       // Constrain Y position (keep below header and above bottom of viewport)
-      newY = Math.max(headerHeight, Math.min(newY, viewportHeight - windowHeight));
-      
+      newY = Math.max(
+        headerHeight,
+        Math.min(newY, viewportHeight - windowHeight),
+      );
+
       setPosition({
         x: newX,
-        y: newY
+        y: newY,
       });
     }
   };
@@ -69,33 +83,33 @@ const DragWindow = ({ children, header, coordinates, }: { children: ReactNode, h
   }, [isDragging, dragOffset]);
 
   return (
-    <div 
+    <div
       ref={windowRef}
-      className={`window ${styles.draggableWindow}`}
-      style={{ 
-        width: 400, 
-        maxHeight: 400, 
+      className="window"
+      style={{
+        width: width,
+        maxHeight: height,
         position: 'absolute',
         left: `${position.x}px`,
         top: `${position.y}px`,
-        zIndex: isDragging ? 1000 : 1
+        zIndex: isDragging ? 1000 : 1,
       }}
     >
-      <div 
+      <div
         className={`title-bar ${styles.titleBar}`}
-        style={{ 
-          cursor: isDragging ? "grabbing" : "grab"
-      }}
+        style={{
+          cursor: isDragging ? 'grabbing' : 'grab',
+        }}
         onMouseDown={handleMouseDown}
       >
-        <div className="title-bar-text" >{header}</div>
+        <div className="title-bar-text">{header}</div>
         <div className="title-bar-controls">
-          <button aria-label="Close" disabled/>
+          <button aria-label="Close" disabled />
         </div>
       </div>
       {children}
     </div>
   );
-}
+};
 
-export default DragWindow
+export default DragWindow;

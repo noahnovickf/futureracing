@@ -1,20 +1,28 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './Icon.module.css';
 
-const Icon = ({ img, text }: { img: string, text: string }) => {
+const Icon = ({
+  img,
+  text,
+  path,
+}: {
+  img: string;
+  text: string;
+  path: string;
+}) => {
   return (
-    <div className={styles.icon}>
-      <Image 
+    <Link href={path} className={styles.icon}>
+      <Image
         src={`/${img}`}
         alt={text}
         width={32}
         height={32}
-        style={{
-          objectFit: 'contain'}}
+        style={{ objectFit: 'contain' }}
       />
       <span className={styles.iconText}>{text}</span>
-    </div>
+    </Link>
   );
-}
+};
 
 export default Icon;
