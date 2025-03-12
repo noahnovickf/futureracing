@@ -25,6 +25,17 @@ const Home = () => {
         >
           <FutureHome width={150} height={150} />
         </StaticWindow>
+        <StaticWindow
+          header="futurecycling/welcome"
+          style={{
+            position: 'absolute',
+            width: 250,
+            left: '20%',
+            top: '60%',
+          }}
+        >
+          <Welcome height={200} />
+        </StaticWindow>
         <IconContainer />
       </Fragment>
     );
@@ -38,7 +49,7 @@ const Home = () => {
           header="futurecycling/landing-page"
           coordinates={{ x: 800, y: 200 }}
         >
-          <Welcome />
+          <Welcome height={300} />
         </DragWindow>
         <DragWindow
           header="futurecycling/logo"
