@@ -2,10 +2,11 @@
 import { fetchSponsors, Sponsor } from '@/queries/fetchSponsors';
 import { useEffect, useState } from 'react';
 import DragWindow from '../components/window/DragWindow';
-import LoadingBar from '../components/LoadignBar';
+import LoadingBar from '../components/LoadingBar';
 
 import Image from 'next/image';
 import SponsorCard from '../components/cards/SponsorCard';
+import IconContainer from '../IconContainer';
 
 const Sponsors = () => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -29,6 +30,7 @@ const Sponsors = () => {
 
   return (
     <div>
+      <IconContainer />
       <DragWindow
         header="Sponsors"
         coordinates={{ x: 100, y: 100 }}
@@ -57,7 +59,7 @@ const Sponsors = () => {
                 onClick={() => setSelectedSponsor(sponsor)}
               >
                 <Image
-                  src={`/sponsors/${sponsor.imgSrc}.png`}
+                  src={`/sponsors/${sponsor.imgSrc}_folder.png`}
                   alt={sponsor.name}
                   width={80}
                   height={80}

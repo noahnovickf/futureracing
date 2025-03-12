@@ -4,12 +4,15 @@ import DragWindow from '../components/window/DragWindow';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import RiderCard from '../components/cards/RiderCard';
-import LoadingBar from '../components/LoadignBar';
+import LoadingBar from '../components/LoadingBar';
+import { useScreen } from '../context/ScreenContext';
+import IconContainer from '../IconContainer';
 
 const MeetTheTeam = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [members, setMembers] = useState<Member[]>([]);
   const [selectedRider, setSelectedRider] = useState<Member | null>(null);
+  const { isMobile } = useScreen();
 
   useEffect(() => {
     async function getMembers() {
@@ -26,8 +29,30 @@ const MeetTheTeam = () => {
     getMembers();
   }, []);
 
+  if (isMobile) {
+    return (
+      <div
+        style={{
+          padding: '0px 32px',
+          display: 'flex',
+          gap: '16px',
+          flexDirection: 'column',
+          marginBottom: '75px',
+        }}
+      >
+        {members.map((rider) => (
+          <RiderCard
+            key={rider.id} // Ensure each item has a unique key
+            rider={rider}
+          />
+        ))}
+      </div>
+    );
+  }
+
   return (
     <div>
+      <IconContainer />
       <DragWindow
         header="Meet the Team"
         coordinates={{ x: 100, y: 100 }}

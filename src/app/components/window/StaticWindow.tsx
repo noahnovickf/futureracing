@@ -4,8 +4,8 @@ import styles from './DragWindow.module.css';
 type StaticWindowProps = {
   children: ReactNode;
   header: string;
-  style?: CSSProperties;
-  onClose: () => void;
+  style: CSSProperties;
+  onClose?: () => void;
 };
 
 const StaticWindow = ({
@@ -18,7 +18,6 @@ const StaticWindow = ({
     <div
       className={'window'}
       style={{
-        position: 'absolute',
         ...style,
       }}
     >

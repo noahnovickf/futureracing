@@ -12,7 +12,7 @@ const iconList = [
     path: '/meet-the-team',
   },
   {
-    iconPath: 'folder.png',
+    iconPath: 'sponsors.png',
     text: 'Sponsors',
     path: '/sponsors',
   },

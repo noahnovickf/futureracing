@@ -1,4 +1,5 @@
 'use client';
+
 import styles from './LoadingBar.module.css';
 
 const LoadingBar = () => {
