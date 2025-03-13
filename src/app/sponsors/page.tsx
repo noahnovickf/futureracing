@@ -7,11 +7,13 @@ import LoadingBar from '../components/LoadingBar';
 import Image from 'next/image';
 import SponsorCard from '../components/cards/SponsorCard';
 import IconContainer from '../IconContainer';
+import { useScreen } from '../context/ScreenContext';
 
 const Sponsors = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [sponsors, setSponsors] = useState<Sponsor[]>([]);
   const [selectedSponsor, setSelectedSponsor] = useState<Sponsor | null>(null);
+  const { isMobile } = useScreen();
 
   useEffect(() => {
     async function getMembers() {
@@ -27,6 +29,24 @@ const Sponsors = () => {
     }
     getMembers();
   }, []);
+
+  if (isMobile) {
+    return (
+      <div
+        style={{
+          padding: '0px 32px',
+          display: 'flex',
+          gap: '16px',
+          flexDirection: 'column',
+          marginBottom: '75px',
+        }}
+      >
+        {sponsors.map((sponsor) => (
+          <SponsorCard key={sponsor.id} sponsor={sponsor} />
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div>

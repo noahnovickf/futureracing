@@ -1,28 +1,34 @@
 import { Sponsor } from '@/queries/fetchSponsors';
 import StaticWindow from '../window/StaticWindow';
 import Image from 'next/image';
+import { useScreen } from '@/app/context/ScreenContext';
 
 const SponsorCard = ({
   sponsor,
   onClose,
 }: {
   sponsor: Sponsor;
-  onClose: () => void;
+  onClose?: () => void;
 }) => {
+  const { isMobile } = useScreen();
   const { id, name, description, imgSrc } = sponsor;
 
-  return (
-    <StaticWindow
-      header={name}
-      style={{
+  const styleObject: React.CSSProperties = isMobile
+    ? { zIndex: 1000, position: 'relative' }
+    : {
         position: 'absolute',
         left: '60%',
         top: '20%',
         width: '350px',
         maxHeight: '600px',
         zIndex: 1000,
-      }}
-      onClose={onClose}
+      };
+
+  return (
+    <StaticWindow
+      header={name}
+      style={styleObject}
+      onClose={onClose && onClose}
     >
       <div
         style={{
