@@ -38,7 +38,7 @@ const SponsorCard = ({
           padding: '8px',
         }}
       >
-        <span>{name}</span>
+        <span style={{ fontSize: 'large' }}>{name}</span>
         <Image
           src={`/sponsors/${imgSrc}_S.svg`}
           alt={name}
@@ -48,7 +48,14 @@ const SponsorCard = ({
           key={id}
         />
 
-        <div style={{ maxHeight: '200px', overflowY: 'scroll' }}>
+        <div
+          style={{
+            maxHeight: '200px',
+            overflowY: 'scroll',
+            fontSize: 'medium',
+            lineHeight: '1.5',
+          }}
+        >
           {description}
         </div>
       </div>

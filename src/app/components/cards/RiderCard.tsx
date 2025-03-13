@@ -39,7 +39,7 @@ const RiderCard = ({
           padding: '8px',
         }}
       >
-        <span>
+        <span style={{ fontSize: 'large' }}>
           {firstName} {lastName}
         </span>
         <Image
@@ -50,7 +50,14 @@ const RiderCard = ({
           style={{ padding: '8px' }}
           key={id}
         />
-        <div style={{ maxHeight: '200px', overflowY: 'scroll' }}>
+        <div
+          style={{
+            maxHeight: '200px',
+            overflowY: 'scroll',
+            fontSize: 'medium',
+            lineHeight: '1.5',
+          }}
+        >
           {description}
         </div>
       </div>
