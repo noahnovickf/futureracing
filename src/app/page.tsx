@@ -20,7 +20,7 @@ const Home = () => {
             position: 'absolute',
             width: 250,
             left: '30%',
-            top: '30%',
+            top: '10%',
           }}
         >
           <FutureHome width={150} height={150} />
@@ -30,8 +30,8 @@ const Home = () => {
           style={{
             position: 'absolute',
             width: 250,
-            left: '20%',
-            top: '60%',
+            left: '25%',
+            top: '40%',
           }}
         >
           <Welcome height={200} />
