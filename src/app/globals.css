@@ -20,7 +20,7 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  background-image: url('/Clouds.svg');
+  background-image: url(https://static.wikitide.net/windowswallpaperwiki/2/24/Clouds_%28Windows_95%29.png);
   font-family: 'Kode Mono', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
