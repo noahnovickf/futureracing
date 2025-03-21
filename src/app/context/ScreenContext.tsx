@@ -14,13 +14,19 @@ type ScreenContextType = {
 const ScreenContext = createContext<ScreenContextType | undefined>(undefined);
 
 export const ScreenProvider = ({ children }: { children: ReactNode }) => {
-  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(window.outerWidth <= 500);
 
   useEffect(() => {
-    const isMobileScreen = window.outerWidth <= 500; // Set mobile breakpoint as needed
-    console.log({ isMobileScreen });
-    setIsMobile(isMobileScreen);
-  }, []); // Empty dependency array means this runs only once on mount
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 500);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <ScreenContext.Provider value={{ isMobile }}>
