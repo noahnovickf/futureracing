@@ -14,17 +14,20 @@ type ScreenContextType = {
 const ScreenContext = createContext<ScreenContextType | undefined>(undefined);
 
 export const ScreenProvider = ({ children }: { children: ReactNode }) => {
-  const [isMobile, setIsMobile] = useState<boolean>(window.outerWidth <= 500);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 500);
+    const checkScreenSize = () => {
+      const isMobileScreen = window.innerWidth <= 500;
+      setIsMobile(isMobileScreen);
     };
 
-    window.addEventListener('resize', handleResize);
+    checkScreenSize();
+
+    window.addEventListener('resize', checkScreenSize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', checkScreenSize);
     };
   }, []);
 
