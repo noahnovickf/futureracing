@@ -15,7 +15,7 @@ const Home = () => {
     return (
       <Fragment>
         <StaticWindow
-          header="futurecycling/landing-page"
+          header="future_cycling/landing-page"
           style={{
             position: 'absolute',
             width: 250,
@@ -26,7 +26,7 @@ const Home = () => {
           <FutureHome width={150} height={150} />
         </StaticWindow>
         <StaticWindow
-          header="futurecycling/welcome"
+          header="future_cycling/welcome"
           style={{
             position: 'absolute',
             width: 250,
@@ -46,13 +46,13 @@ const Home = () => {
       <IconContainer />
       <main className={styles.main}>
         <DragWindow
-          header="futurecycling/landing-page"
+          header="future_cycling/landing-page"
           coordinates={{ x: 800, y: 200 }}
         >
           <Welcome height={300} />
         </DragWindow>
         <DragWindow
-          header="futurecycling/logo"
+          header="future_cycling/logo"
           coordinates={{ x: 200, y: 200 }}
         >
           <FutureHome width={400} height={400} />
