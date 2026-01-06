@@ -74,6 +74,7 @@ const Footer = () => {
                 borderRadius: '3px',
                 color: disabled ? 'grey' : '',
                 cursor: disabled ? 'not-allowed' : '',
+                pointerEvents: disabled ? 'none' : 'auto',
               }}
               aria-disabled={disabled}
               onClick={() => setIsOpen(false)}

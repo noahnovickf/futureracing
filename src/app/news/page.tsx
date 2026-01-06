@@ -1,4 +1,10 @@
+import IconContainer from '../IconContainer';
+
 const News = () => {
-  return <div>news</div>;
+  return (
+    <div>
+      <IconContainer />
+    </div>
+  );
 };
 export default News;

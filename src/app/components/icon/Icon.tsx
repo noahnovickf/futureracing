@@ -6,13 +6,22 @@ const Icon = ({
   img,
   text,
   path,
+  disabled = false,
 }: {
   img: string;
   text: string;
   path: string;
+  disabled?: boolean;
 }) => {
   return (
-    <Link href={path} className={styles.icon}>
+    <Link
+      aria-disabled={disabled}
+      href={path}
+      className={styles.icon}
+      style={{
+        pointerEvents: disabled ? 'none' : 'auto',
+      }}
+    >
       <Image
         src={`/${img}`}
         alt={text}

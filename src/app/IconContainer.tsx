@@ -30,14 +30,21 @@ const iconList = [
     iconPath: 'calendar.png',
     text: 'Calendar (coming soon)',
     path: '/calendar',
+    disabled: true,
   },
 ];
 
 const IconContainer = () => {
   return (
     <div style={{ position: 'absolute', top: '30px', left: '10px' }}>
-      {iconList.map(({ iconPath, text, path }) => (
-        <Icon img={iconPath} text={text} path={path} key={iconPath} />
+      {iconList.map(({ iconPath, text, path, disabled }) => (
+        <Icon
+          img={iconPath}
+          text={text}
+          path={path}
+          key={iconPath}
+          disabled={disabled}
+        />
       ))}
     </div>
   );
