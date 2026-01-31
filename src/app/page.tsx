@@ -7,6 +7,8 @@ import IconContainer from './IconContainer';
 import { useScreen } from './context/ScreenContext';
 import { Fragment } from 'react';
 import StaticWindow from './components/window/StaticWindow';
+import Sponsors from './sponsors/page';
+import SponsorWindow from './sponsors/SponsorWindow';
 
 const Home = () => {
   const { isMobile } = useScreen();
@@ -56,6 +58,13 @@ const Home = () => {
           coordinates={{ x: 200, y: 200 }}
         >
           <FutureHome width={400} height={400} />
+        </DragWindow>
+
+        <DragWindow
+          header="future_cycling/sponsors"
+          coordinates={{ x: 800, y: 600 }}
+        >
+          <SponsorWindow />
         </DragWindow>
       </main>
     </div>

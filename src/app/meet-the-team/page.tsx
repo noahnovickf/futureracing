@@ -57,6 +57,7 @@ const MeetTheTeam = () => {
         header="Meet the Team"
         coordinates={{ x: 100, y: 100 }}
         width={600}
+        height={450}
       >
         {loading ? (
           <LoadingBar />
@@ -77,6 +78,9 @@ const MeetTheTeam = () => {
                   width: '95px',
                   overflow: 'visible',
                   cursor: 'pointer',
+                  paddingBlock: '10px',
+                  boxShadow:
+                    'inset -1px -1px #0a0a0a, inset 1px 1px #dfdfdf, inset -2px -2px gray, inset 2px 2px #fff',
                 }}
                 onClick={() => setSelectedRider(rider)}
               >

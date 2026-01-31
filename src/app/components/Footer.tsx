@@ -99,6 +99,17 @@ const Footer = () => {
             style={{ objectFit: 'contain' }}
           />
         </button>
+        <div
+          style={{
+            display: 'flex',
+            width: '100%',
+            alignItems: 'center',
+            fontSize: 'large',
+            justifyContent: 'center',
+          }}
+        >
+          Get 5% off most items at Dunbar with the code FUTURE&F
+        </div>
       </div>
     </>
   );
