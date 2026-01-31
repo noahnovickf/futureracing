@@ -7,7 +7,6 @@ import IconContainer from './IconContainer';
 import { useScreen } from './context/ScreenContext';
 import { Fragment } from 'react';
 import StaticWindow from './components/window/StaticWindow';
-import Sponsors from './sponsors/page';
 import SponsorWindow from './sponsors/SponsorWindow';
 
 const Home = () => {

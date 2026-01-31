@@ -1,7 +1,6 @@
 'use client';
 import { fetchSponsors, Sponsor } from '@/queries/fetchSponsors';
 import { useEffect, useState } from 'react';
-import DragWindow from '../components/window/DragWindow';
 import LoadingBar from '../components/LoadingBar';
 
 import Image from 'next/image';
