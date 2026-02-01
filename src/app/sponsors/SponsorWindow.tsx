@@ -72,7 +72,13 @@ const SponsorWindow = ({ clickable = false }: { clickable?: boolean }) => {
                 cursor: 'pointer',
                 textAlign: 'center',
               }}
-              onClick={() => clickable && setSelectedSponsor(sponsor)}
+              onClick={() => {
+                if (clickable) {
+                  setSelectedSponsor(sponsor);
+                } else if (sponsor.url) {
+                  window.open(sponsor.url, '_blank', 'noopener,noreferrer');
+                }
+              }}
             >
               <Image
                 src={`/sponsors/${sponsor.imgSrc}_folder.png`}

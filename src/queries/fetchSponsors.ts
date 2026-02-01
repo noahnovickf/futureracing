@@ -12,6 +12,7 @@ export async function fetchSponsors() {
       description: data.description || '',
       imgSrc: data.imgSrc || '',
       name: data.name || '',
+      url: data.url || '',
     };
   });
 }
@@ -21,4 +22,5 @@ export interface Sponsor {
   imgSrc: string;
   description: string;
   name: string;
+  url?: string;
 }
