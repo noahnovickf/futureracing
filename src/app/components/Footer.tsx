@@ -57,8 +57,11 @@ const Footer = () => {
             { href: '/', label: 'Home' },
             { href: '/meet-the-team', label: 'Meet the Team' },
             { href: '/sponsors', label: 'Sponsors' },
-            { href: '/news', label: 'News' },
             { href: '/gallery', label: 'Gallery' },
+            {
+              href: 'https://open.spotify.com/playlist/3DEZ4SZKJo3Wck96HUckZG?si=vpwPxL2tQeaLaEk32VHH3g&pi=vF4UUcJ8R5Csu',
+              label: 'Spotify Playlist',
+            },
             {
               href: '/calendar',
               label: 'Calendar (coming soon)',
