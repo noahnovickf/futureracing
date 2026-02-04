@@ -9,12 +9,14 @@ const DragWindow = ({
   coordinates,
   width = 400,
   height = 400,
+  onClose,
 }: {
   children: ReactNode;
   header: string;
   coordinates: { x: number; y: number };
   width?: number;
   height?: number;
+  onClose?: () => void;
 }) => {
   const [position, setPosition] = useState(coordinates);
   const [isDragging, setIsDragging] = useState(false);
@@ -104,7 +106,7 @@ const DragWindow = ({
       >
         <div className="title-bar-text">{header}</div>
         <div className="title-bar-controls">
-          <button aria-label="Close" disabled />
+          <button aria-label="Close" onClick={onClose} disabled={!onClose} />
         </div>
       </div>
       {children}

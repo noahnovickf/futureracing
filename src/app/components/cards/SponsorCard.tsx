@@ -11,7 +11,7 @@ const SponsorCard = ({
   onClose?: () => void;
 }) => {
   const { isMobile } = useScreen();
-  const { id, name, description, imgSrc } = sponsor;
+  const { id, name, description, imgSrc, url } = sponsor;
 
   const styleObject: React.CSSProperties = isMobile
     ? { zIndex: 1000, position: 'relative' }
@@ -58,6 +58,16 @@ const SponsorCard = ({
         >
           {description}
         </div>
+        {url && (
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ marginTop: '12px' }}
+          >
+            <button style={{ width: '100%' }}>Visit Website</button>
+          </a>
+        )}
       </div>
     </StaticWindow>
   );

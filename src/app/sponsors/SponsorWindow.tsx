@@ -14,18 +14,18 @@ const SponsorWindow = ({ clickable = false }: { clickable?: boolean }) => {
   const { isMobile } = useScreen();
 
   useEffect(() => {
-    async function getMembers() {
+    async function getSponsors() {
       setLoading(true);
       try {
         const data = await fetchSponsors();
         setSponsors(data);
       } catch (error) {
-        console.error('Error fetching members:', error);
+        console.error('Error fetching sponsors:', error);
       } finally {
         setLoading(false);
       }
     }
-    getMembers();
+    getSponsors();
   }, []);
 
   if (isMobile) {
@@ -39,9 +39,13 @@ const SponsorWindow = ({ clickable = false }: { clickable?: boolean }) => {
           marginBottom: '75px',
         }}
       >
-        {sponsors.map((sponsor) => (
-          <SponsorCard key={sponsor.id} sponsor={sponsor} />
-        ))}
+        {loading ? (
+          <LoadingBar />
+        ) : (
+          sponsors.map((sponsor) => (
+            <SponsorCard key={sponsor.id} sponsor={sponsor} />
+          ))
+        )}
       </div>
     );
   }
@@ -66,8 +70,15 @@ const SponsorWindow = ({ clickable = false }: { clickable?: boolean }) => {
                 width: '95px',
                 overflow: 'visible',
                 cursor: 'pointer',
+                textAlign: 'center',
               }}
-              onClick={() => clickable && setSelectedSponsor(sponsor)}
+              onClick={() => {
+                if (clickable) {
+                  setSelectedSponsor(sponsor);
+                } else if (sponsor.url) {
+                  window.open(sponsor.url, '_blank', 'noopener,noreferrer');
+                }
+              }}
             >
               <Image
                 src={`/sponsors/${sponsor.imgSrc}_folder.png`}

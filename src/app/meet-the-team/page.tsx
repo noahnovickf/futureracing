@@ -56,8 +56,8 @@ const MeetTheTeam = () => {
       <DragWindow
         header="Meet the Team"
         coordinates={{ x: 100, y: 100 }}
-        width={600}
-        height={450}
+        width={695}
+        height={600}
       >
         {loading ? (
           <LoadingBar />
@@ -75,10 +75,11 @@ const MeetTheTeam = () => {
                   flexDirection: 'column',
                   gap: '4px',
                   alignItems: 'center',
-                  width: '95px',
+                  width: '115px',
                   overflow: 'visible',
                   cursor: 'pointer',
                   paddingBlock: '10px',
+                  textAlign: 'center',
                   boxShadow:
                     'inset -1px -1px #0a0a0a, inset 1px 1px #dfdfdf, inset -2px -2px gray, inset 2px 2px #fff',
                 }}

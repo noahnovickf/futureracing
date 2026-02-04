@@ -17,14 +17,14 @@ const iconList = [
     path: '/sponsors',
   },
   {
-    iconPath: 'news3.png',
-    text: 'News',
-    path: '/news',
-  },
-  {
     iconPath: 'camera.png',
     text: 'Gallery',
     path: '/gallery',
+  },
+  {
+    iconPath: 'music.png',
+    text: 'Spotify Playlist',
+    path: 'https://open.spotify.com/playlist/3DEZ4SZKJo3Wck96HUckZG?si=vpwPxL2tQeaLaEk32VHH3g&pi=vF4UUcJ8R5Csu',
   },
   {
     iconPath: 'calendar.png',
