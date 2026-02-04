@@ -108,7 +108,7 @@ const Footer = () => {
             justifyContent: 'center',
           }}
         >
-          Get 5% off most items at Dunbar with the code FUTURE&F
+          Get up to 10% off at Dunbar with the code FutureF&F
         </div>
       </div>
     </>
